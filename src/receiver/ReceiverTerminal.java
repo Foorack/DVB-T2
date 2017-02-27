@@ -3,7 +3,7 @@ package receiver;
 import edu.mit.streamjit.api.Pipeline;
 import transmitter.streamjit.T2_Frame;
 
-public class ReceiverTerminal extends edu.mit.streamjit.api.Pipeline<T2_Frame, Byte>{
+public class ReceiverTerminal extends Pipeline<T2_Frame, Byte>{
 	
 	public ReceiverTerminal(){
 		this.add(new ReceiverKernel());
@@ -30,7 +30,4 @@ public class ReceiverTerminal extends edu.mit.streamjit.api.Pipeline<T2_Frame, B
 			);
 		}		
 	}
-		
-
 }
-
