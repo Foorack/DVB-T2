@@ -16,10 +16,12 @@ public class ByteToSource extends Pipeline<Byte, Byte> {
 
 	public static class WriteToFile extends Filter<Byte, Byte> {
 
+		private static final int writingGranularity = 20;
+
 		final DataOutputStream out;
 
 		public WriteToFile() {
-			super(20, 20);
+			super(writingGranularity, writingGranularity);
 			out = openOutFile();
 		}
 
@@ -39,7 +41,7 @@ public class ByteToSource extends Pipeline<Byte, Byte> {
 			// byte value = pop();
 			// appendToFile(value);
 			///////////////////////////////////////
-			byte[] data = new byte[20];
+			byte[] data = new byte[writingGranularity];
 			for (int i = 0; i < data.length; i++) {
 				data[i] = pop();
 				push(data[i]);
