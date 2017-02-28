@@ -11,6 +11,7 @@ import java.util.Random;
 
 import edu.mit.streamjit.api.Filter;
 import edu.mit.streamjit.api.Pipeline;
+import transmitter.streamjit.FEC_Frame;
 
 public class PushDataBits extends Pipeline<FEC_Frame, Byte> {
 

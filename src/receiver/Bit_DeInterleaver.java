@@ -4,6 +4,7 @@ import edu.mit.streamjit.api.Pipeline;
 import edu.mit.streamjit.api.RoundrobinJoiner;
 import edu.mit.streamjit.api.RoundrobinSplitter;
 import edu.mit.streamjit.api.Splitjoin;
+import transmitter.streamjit.FEC_Frame;
 
 public class Bit_DeInterleaver extends Pipeline<FEC_Frame, FEC_Frame> {
 
