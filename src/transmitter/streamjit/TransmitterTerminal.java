@@ -23,7 +23,7 @@ public class TransmitterTerminal {
 		// compile2streamcompiler
 		Compiler2StreamCompiler sc = new Compiler2StreamCompiler();
 		sc.maxNumCores(4);
-		sc.multiplier(4);
+		sc.multiplier(1);
 		Benchmarker.runBenchmark(new TransmitterBenchmark(), sc).get(0).print(System.out);
 	}
 
@@ -33,8 +33,8 @@ public class TransmitterTerminal {
 		// E:\\Project\\inputdata\\data.in
 		public TransmitterBenchmark() {
 			super("Transmitter", TransmitterKernel.class,
-					new Dataset("E:\\videocoding\\yuv\\stefan5.yuv",
-							(Input) Input.fromBinaryFile(Paths.get("E:\\videocoding\\yuv\\stefan5.yuv"), Byte.class,
+					new Dataset("/data/bus_cif.yuv",
+							(Input) Input.fromBinaryFile(Paths.get("./data/bus_cif.yuv"), Byte.class,
 									ByteOrder.LITTLE_ENDIAN)));
 		}
 	}
