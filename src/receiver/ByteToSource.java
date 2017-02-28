@@ -44,7 +44,7 @@ public class ByteToSource extends Pipeline<Byte, Byte> {
 			DataOutputStream out = null;
 			// DataInputStream in=null;
 			try {
-				out = new DataOutputStream(new FileOutputStream("E:\\Project\\out.yuv", true));
+				out = new DataOutputStream(new FileOutputStream("./out.yuv", true));
 				// in = new DataInputStream(new FileInputStream("data.in"));
 			} catch (FileNotFoundException e1) {
 				// TODO Auto-generated catch block
@@ -80,7 +80,7 @@ public class ByteToSource extends Pipeline<Byte, Byte> {
 			DataOutputStream out = null;
 			// DataInputStream in=null;
 			try {
-				out = new DataOutputStream(new FileOutputStream("E:\\videocoding\\yuv\\out.yuv", true));
+				out = new DataOutputStream(new FileOutputStream("./out.yuv", true));
 				// in = new DataInputStream(new FileInputStream("data.in"));
 			} catch (FileNotFoundException e1) {
 				// TODO Auto-generated catch block
