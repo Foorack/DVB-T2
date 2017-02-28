@@ -16,8 +16,21 @@ public class ByteToSource extends Pipeline<Byte, Byte> {
 
 	public static class WriteToFile extends Filter<Byte, Byte> {
 
+		final DataOutputStream out;
+
 		public WriteToFile() {
 			super(20, 20);
+			out = openOutFile();
+		}
+
+		private static DataOutputStream openOutFile() {
+			DataOutputStream file = null;
+			try {
+				file = new DataOutputStream(new FileOutputStream("./out.yuv", true));
+			} catch (FileNotFoundException e1) {
+				e1.printStackTrace();
+			}
+			return file;
 		}
 
 		@Override
@@ -31,25 +44,15 @@ public class ByteToSource extends Pipeline<Byte, Byte> {
 				data[i] = pop();
 				push(data[i]);
 			}
-			byteToSource(data);
+			byteToSource(data, out);
 			/////////////////////////////////////////
 			// push(value);
 
 		}
 
-		public static void byteToSource(byte[] data) {
+		public static void byteToSource(byte[] data, DataOutputStream out) {
 			System.out.println("data length =" + data.length);
 			int size = data.length;
-
-			DataOutputStream out = null;
-			// DataInputStream in=null;
-			try {
-				out = new DataOutputStream(new FileOutputStream("./out.yuv", true));
-				// in = new DataInputStream(new FileInputStream("data.in"));
-			} catch (FileNotFoundException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
 
 			for (int i = 0; i < size; i++) {
 				byte l = data[i];
@@ -63,15 +66,6 @@ public class ByteToSource extends Pipeline<Byte, Byte> {
 					e.printStackTrace();
 				}
 			}
-
-			try {
-				// in.close();
-				out.close();
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-
 			System.out.println("Done..");
 		}
 
@@ -101,6 +95,16 @@ public class ByteToSource extends Pipeline<Byte, Byte> {
 				e.printStackTrace();
 			}
 
+		}
+
+		public void finalize() {
+			if (out == null)
+				return;
+			try {
+				out.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
 		}
 	}
 }
