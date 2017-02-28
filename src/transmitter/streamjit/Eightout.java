@@ -1,10 +1,17 @@
 package transmitter.streamjit;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Nipuna Priyamal
  */
-public class Eightout {
+public class Eightout implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private boolean[] array0;
 	private boolean[] array1;
 	private boolean[] array2;

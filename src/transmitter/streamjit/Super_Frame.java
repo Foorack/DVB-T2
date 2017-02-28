@@ -1,6 +1,13 @@
 package transmitter.streamjit;
 
-public class Super_Frame {
+import java.io.Serializable;
+
+public class Super_Frame implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public T2_Frame frame1, frame2;
 

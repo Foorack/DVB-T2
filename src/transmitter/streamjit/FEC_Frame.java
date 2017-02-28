@@ -1,6 +1,13 @@
 package transmitter.streamjit;
 
-public class FEC_Frame {
+import java.io.Serializable;
+
+public class FEC_Frame implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	/*
 	 * static final int frameLength = 64800; //64800 OR 16200 static boolean[]

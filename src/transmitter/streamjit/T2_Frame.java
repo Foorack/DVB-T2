@@ -1,8 +1,15 @@
 package transmitter.streamjit;
 
+import java.io.Serializable;
+
 import org.jscience.mathematics.number.Complex;
 
-public class T2_Frame {
+public class T2_Frame implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	public Complex[] data;
 

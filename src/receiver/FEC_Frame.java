@@ -1,6 +1,8 @@
 package receiver;
 
-public class FEC_Frame {
+import java.io.Serializable;
+
+public class FEC_Frame implements Serializable {
 
 	/*
 	 * static final int frameLength = 64800; //64800 OR 16200 static boolean[]
@@ -12,6 +14,11 @@ public class FEC_Frame {
 	 * static final int DFL = 44600; // need padding of 48600-44600-80 bits
 	 * static final int pad = Kbch - DFL - 80;
 	 */
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	final int frameLength = 64800;
 
