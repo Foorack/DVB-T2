@@ -34,7 +34,7 @@ public class Channel extends Pipeline<Complex, Complex> {
 		}
 	}
 
-	private static Complex[] addAWGN(Complex[] in) {
+	public static Complex[] addAWGN(Complex[] in) {
 		Complex[] out = new Complex[in.length];
 		Random rand = new Random();
 		double real;
