@@ -8,7 +8,6 @@ import org.jscience.mathematics.number.Complex;
 
 import com.jeffreybosboom.serviceproviderprocessor.ServiceProvider;
 
-import channel.Channel;
 import edu.mit.streamjit.api.Filter;
 import edu.mit.streamjit.api.Input;
 import edu.mit.streamjit.api.Pipeline;
@@ -16,7 +15,6 @@ import edu.mit.streamjit.impl.compiler2.Compiler2StreamCompiler;
 import edu.mit.streamjit.test.Benchmark;
 import edu.mit.streamjit.test.Benchmarker;
 import edu.mit.streamjit.test.SuppliedBenchmark;
-import receiver.ReceiverTerminal;
 
 public class TransmitterTerminal {
 	public static void main(String[] args) throws InterruptedException, IOException {
@@ -56,9 +54,7 @@ public class TransmitterTerminal {
 					, new CellInterleaver()
 					, new T2FrameBuilder()
 					, new SuperFrameBuilder()
-					, new IFFT()
-					, new Channel()
-					, new ReceiverTerminal());
+					, new IFFT());
 		}
 	}
 
