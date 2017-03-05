@@ -1,4 +1,4 @@
-package transmitter.streamjit;
+package transmitter;
 
 import org.jscience.mathematics.number.Complex;
 

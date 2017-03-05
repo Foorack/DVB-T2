@@ -5,8 +5,8 @@ import edu.mit.streamjit.api.Pipeline;
 import edu.mit.streamjit.api.RoundrobinJoiner;
 import edu.mit.streamjit.api.RoundrobinSplitter;
 import edu.mit.streamjit.api.Splitjoin;
-import transmitter.streamjit.Eightout;
-import transmitter.streamjit.FEC_Frame;
+import transmitter.Eightout;
+import transmitter.FEC_Frame;
 
 /**
  *

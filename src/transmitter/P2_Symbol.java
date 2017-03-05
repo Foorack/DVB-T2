@@ -1,4 +1,4 @@
-package transmitter.streamjit;
+package transmitter;
 
 import java.util.BitSet;
 

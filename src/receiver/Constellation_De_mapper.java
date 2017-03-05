@@ -4,7 +4,7 @@ import org.jscience.mathematics.number.Complex;
 
 import edu.mit.streamjit.api.Filter;
 import edu.mit.streamjit.api.Pipeline;
-import transmitter.streamjit.Eightout;
+import transmitter.Eightout;
 
 /**
  *

@@ -5,7 +5,7 @@ import edu.mit.streamjit.api.Pipeline;
 import edu.mit.streamjit.api.RoundrobinJoiner;
 import edu.mit.streamjit.api.RoundrobinSplitter;
 import edu.mit.streamjit.api.Splitjoin;
-import transmitter.streamjit.FEC_Frame;
+import transmitter.FEC_Frame;
 
 public class BBHeaderRemovel extends Pipeline<FEC_Frame, FEC_Frame> {
 

@@ -1,4 +1,4 @@
-package transmitter.streamjit;
+package transmitter;
 
 import edu.mit.streamjit.api.Filter;
 import edu.mit.streamjit.api.Pipeline;

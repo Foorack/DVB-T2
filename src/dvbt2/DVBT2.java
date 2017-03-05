@@ -15,7 +15,7 @@ import edu.mit.streamjit.test.Benchmark;
 import edu.mit.streamjit.test.Benchmarker;
 import edu.mit.streamjit.test.SuppliedBenchmark;
 import receiver.ReceiverTerminal.ReceiverKernel;
-import transmitter.streamjit.TransmitterTerminal.TransmitterKernel;
+import transmitter.TransmitterTerminal.TransmitterKernel;
 
 /**
  * @author Sumanaruban Rajadurai (Suman)
