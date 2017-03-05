@@ -2,18 +2,22 @@ package transmitter;
 
 import java.io.IOException;
 import java.nio.ByteOrder;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 
 import org.jscience.mathematics.number.Complex;
 
 import com.jeffreybosboom.serviceproviderprocessor.ServiceProvider;
 
+import edu.mit.streamjit.api.CompiledStream;
 import edu.mit.streamjit.api.Filter;
 import edu.mit.streamjit.api.Input;
+import edu.mit.streamjit.api.OneToOneElement;
+import edu.mit.streamjit.api.Output;
+import edu.mit.streamjit.api.Output.BinaryFileOutput;
 import edu.mit.streamjit.api.Pipeline;
 import edu.mit.streamjit.impl.compiler2.Compiler2StreamCompiler;
 import edu.mit.streamjit.test.Benchmark;
-import edu.mit.streamjit.test.Benchmarker;
 import edu.mit.streamjit.test.SuppliedBenchmark;
 
 public class TransmitterTerminal {
@@ -23,7 +27,16 @@ public class TransmitterTerminal {
 		Compiler2StreamCompiler sc = new Compiler2StreamCompiler();
 		sc.maxNumCores(4);
 		sc.multiplier(1);
-		Benchmarker.runBenchmark(new TransmitterBenchmark(), sc).get(0).print(System.out);
+		// Benchmarker.runBenchmark(new TransmitterBenchmark(),
+		// sc).get(0).print(System.out);
+
+		OneToOneElement<Byte, Complex> streamGraph = new TransmitterKernel();
+		Path path = Paths.get("data/bus_cif.yuv");
+		Input<Byte> input = Input.fromBinaryFile(path, Byte.class, ByteOrder.LITTLE_ENDIAN);
+		BinaryFileOutput<Complex> fileOutput = Output.toBinaryFile("dvbtransmitter.out", Complex.class);
+		CompiledStream cs = sc.compile(streamGraph, input, fileOutput);
+		cs.awaitDrained();
+		fileOutput.close();
 	}
 
 	@ServiceProvider(Benchmark.class)
@@ -31,10 +44,8 @@ public class TransmitterTerminal {
 		//// E:\\videocoding\\yuv\\randomsource.yuv
 		// E:\\Project\\inputdata\\data.in
 		public TransmitterBenchmark() {
-			super("Transmitter", TransmitterKernel.class,
-					new Dataset("/data/bus_cif.yuv",
-							(Input) Input.fromBinaryFile(Paths.get("./data/bus_cif.yuv"), Byte.class,
-									ByteOrder.LITTLE_ENDIAN)));
+			super("Transmitter", TransmitterKernel.class, new Dataset("data/bus_cif.yuv",
+					(Input) Input.fromBinaryFile(Paths.get("data/bus_cif.yuv"), Byte.class, ByteOrder.LITTLE_ENDIAN)));
 		}
 	}
 
