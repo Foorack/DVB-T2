@@ -53,7 +53,7 @@ public class ByteToSource extends Pipeline<Byte, Byte> {
 		}
 
 		public static void byteToSource(byte[] data, DataOutputStream out) {
-			System.out.println("data length =" + data.length);
+			// System.out.println("data length =" + data.length);
 			int size = data.length;
 
 			for (int i = 0; i < size; i++) {
@@ -68,7 +68,7 @@ public class ByteToSource extends Pipeline<Byte, Byte> {
 					e.printStackTrace();
 				}
 			}
-			System.out.println("Done..");
+			// System.out.println("Done..");
 		}
 
 		public static void appendToFile(byte value) {

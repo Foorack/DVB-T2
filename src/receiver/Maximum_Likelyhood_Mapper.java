@@ -70,8 +70,8 @@ public class Maximum_Likelyhood_Mapper extends Pipeline<Complex, Complex> {
 						gen_val++;
 					}
 					real_complex = (double) real + (double) (gen_val / 10);
-					System.out.println(real_complex);
-					System.out.println("%%%%%%%%%%%%" + real);
+					// System.out.println(real_complex);
+					// System.out.println("%%%%%%%%%%%%" + real);
 				}
 
 				if (real_complex > 0 && (real % 2) == 0 && real_complex < 16) {
@@ -111,7 +111,7 @@ public class Maximum_Likelyhood_Mapper extends Pipeline<Complex, Complex> {
 						gen_val++;
 					}
 					imge_complex = (double) imge + (double) (gen_val / 10);
-					System.out.println(imge_complex);
+					// System.out.println(imge_complex);
 				}
 
 				if (imge_complex > 0 && (imge % 2) == 0 && imge_complex < 16) {

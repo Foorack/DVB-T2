@@ -31,15 +31,15 @@ public class PushDataBits extends Pipeline<FEC_Frame, Byte> {
 			FEC_Frame current_frame = pop();
 			boolean[] data_array = current_frame.getFEC_Data();
 			// System.out.println("data array length="+data_array.length);
-			StringBuilder builder = new StringBuilder();
+			// StringBuilder builder = new StringBuilder();
 			byte value;
 			for (int i = 0; i < data_array.length; i++) {
 				boolean temp = data_array[i];
 				if (temp) {
-					builder.append("1");
+					// builder.append("1");
 					value = 1;
 				} else {
-					builder.append("0");
+					// builder.append("0");
 					value = 0;
 				}
 				// appendToFile2(value);

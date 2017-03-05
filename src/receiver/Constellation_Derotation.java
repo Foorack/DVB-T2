@@ -90,7 +90,7 @@ public class Constellation_Derotation extends Pipeline<Complex, Complex> {
 			double real = Math.cos(theta * (Math.PI) / 180);
 			double img = Math.sin(theta * (Math.PI) / 180);
 			Complex RQD = Complex.valueOf(real, img);
-			System.out.println("RQD = " + RQD.getReal() + "\t" + RQD.getImaginary() + "\n");
+			// System.out.println("RQD = " + RQD.getReal() + "\t" + RQD.getImaginary() + "\n");
 			System.gc();
 			Complex de_rotationout[] = new Complex[6];
 
