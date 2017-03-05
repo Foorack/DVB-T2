@@ -19,7 +19,7 @@ public class CellInterleaver extends Pipeline<Complex, Complex> {
 
 		@Override
 		public void work() {
-			System.out.println("============ Cell Interleaver ================");
+			// System.out.println("============ Cell Interleaver ================");
 			Complex[] cells = new Complex[8100];
 			for (int i = 0; i < cells.length; i++) {
 				cells[i] = pop();

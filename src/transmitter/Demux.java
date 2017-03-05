@@ -21,11 +21,11 @@ public class Demux extends Pipeline<FEC_Frame, Eightout> {
 
 		@Override
 		public void work() {
-			System.out.println("============ Demux ================");
+			// System.out.println("============ Demux ================");
 			FEC_Frame frame = pop();
 			// Eightout out = Demuxout(frame);
 			boolean[] inputstream = frame.FEC_frame;
-			System.out.println("inputstream length: " + inputstream.length);
+			// System.out.println("inputstream length: " + inputstream.length);
 
 			/*
 			 * boolean temp; System.out.println("inputstream--------------");

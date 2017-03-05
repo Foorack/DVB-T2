@@ -21,7 +21,7 @@ public class Scrambler extends Pipeline<FEC_Frame, FEC_Frame> {
 
 		@Override
 		public void work() {
-			System.out.println("============ Scrambler ================");
+			// System.out.println("============ Scrambler ================");
 			FEC_Frame frame = pop();
 			FEC_Frame frame2 = ScramblerOut(frame);
 			push(frame2);

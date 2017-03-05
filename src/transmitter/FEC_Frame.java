@@ -33,7 +33,7 @@ public class FEC_Frame implements Serializable{
 	final int pad = Kbch - DFL - BBHeaderLength;
 
 	public FEC_Frame() {
-		System.out.println("FEC_Frame Default constructor");
+		// System.out.println("FEC_Frame Default constructor");
 	}
 
 	public FEC_Frame(boolean[] fec_frame) {

@@ -24,7 +24,7 @@ public class ConstellationMapper extends Pipeline<Eightout, Complex> {
 
 		@Override
 		public void work() {
-			System.out.println("============ Constellation Mapper ================");
+			// System.out.println("============ Constellation Mapper ================");
 			Eightout arrays = pop();
 			// Complex[] cells = Cellqueue(arrays);
 
@@ -46,7 +46,7 @@ public class ConstellationMapper extends Pipeline<Eightout, Complex> {
 			double imgz = 0;
 			Complex Constmapout[] = new Complex[length]; // 6=8100
 
-			System.out.println(length);
+			// System.out.println(length);
 			for (int i = 0; i < length; i++) {
 
 				if (array0[i] == true) {
@@ -187,7 +187,7 @@ public class ConstellationMapper extends Pipeline<Eightout, Complex> {
 				// System.out.println(Constmapout[i]);
 				push(Constmapout[i]);
 			}
-			System.out.println();
+			// System.out.println();
 		}
 	}
 

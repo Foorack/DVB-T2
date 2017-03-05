@@ -30,7 +30,7 @@ public class BB_Header_Insertion extends Pipeline<FEC_Frame, FEC_Frame> {
 
 		@Override
 		public void work() {
-			System.out.println("============ BB Header Insertion ================");
+			// System.out.println("============ BB Header Insertion ================");
 			FEC_Frame frame = pop();
 			FEC_Frame frame2 = insertHeader(frame);
 			push(frame2);
@@ -41,7 +41,7 @@ public class BB_Header_Insertion extends Pipeline<FEC_Frame, FEC_Frame> {
 	public static FEC_Frame insertHeader(FEC_Frame frame) {
 		boolean[] header_data;
 		header_data = frame.FEC_frame;
-		System.out.println(header_data.length);
+		// System.out.println(header_data.length);
 		for (int j = 0; j < header_length; j++) {
 			if (header_str.charAt(j) == '1') {
 				header_data[j] = true;

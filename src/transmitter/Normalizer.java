@@ -23,7 +23,7 @@ public class Normalizer extends Pipeline<Complex, Complex> {
 
 		@Override
 		public void work() {
-			System.out.println("Normalizer---------------------");
+			// System.out.println("Normalizer---------------------");
 			Complex out, temp;
 			for (int i = 0; i < 8100; i++) {
 				temp = pop();

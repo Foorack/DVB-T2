@@ -23,7 +23,7 @@ public class ConstellationRotator extends Pipeline<Complex, Complex> {
 
 		@Override
 		public void work() {
-			System.out.println("============ Rotator ================");
+			// System.out.println("============ Rotator ================");
 			Complex[] Normalizerout = new Complex[8100];
 			for (int i = 0; i < Normalizerout.length; i++) {
 				Normalizerout[i] = pop();
@@ -38,11 +38,11 @@ public class ConstellationRotator extends Pipeline<Complex, Complex> {
 																	// in
 																	// degrees
 			double theta = (Math.PI) * angle / 180;
-			System.out.println("theta = " + theta);
+			// System.out.println("theta = " + theta);
 			double real = Math.cos(theta * (Math.PI) / 180);
 			double img = Math.sin(theta * (Math.PI) / 180);
 			Complex RQD = Complex.valueOf(real, img);
-			System.out.println("RQD = " + RQD.getReal() + "\t" + RQD.getImaginary() + "\n");
+			// System.out.println("RQD = " + RQD.getReal() + "\t" + RQD.getImaginary() + "\n");
 
 			Complex rotationout[] = new Complex[length];
 			for (int i = 0; i < length; i++) {
@@ -75,11 +75,11 @@ public class ConstellationRotator extends Pipeline<Complex, Complex> {
 																// should be in
 																// degrees
 		double theta = (Math.PI) * angle / 180;
-		System.out.println("theta = " + theta);
+		// System.out.println("theta = " + theta);
 		double real = Math.cos(theta * (Math.PI) / 180);
 		double img = Math.sin(theta * (Math.PI) / 180);
 		Complex RQD = Complex.valueOf(real, img);
-		System.out.println("RQD = " + RQD.getReal() + "\t" + RQD.getImaginary() + "\n");
+		// System.out.println("RQD = " + RQD.getReal() + "\t" + RQD.getImaginary() + "\n");
 
 		Complex rotationout[] = new Complex[length];
 		for (int i = 0; i < length; i++) {

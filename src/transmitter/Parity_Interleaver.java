@@ -17,7 +17,7 @@ public class Parity_Interleaver extends Pipeline<FEC_Frame, FEC_Frame> {
 
 		@Override
 		public void work() {
-			System.out.println("============ Parity Interleave ================");
+			// System.out.println("============ Parity Interleave ================");
 			FEC_Frame frame = pop();
 			// FEC_Frame frame2 = do_bit_interleave(frame);
 
@@ -46,16 +46,16 @@ public class Parity_Interleaver extends Pipeline<FEC_Frame, FEC_Frame> {
 				}
 			}
 
-			System.out.println("\nbit interleaving");
-			for (int i = D_out.length - 100; i < D_out.length; i++) {
-				if (D_out[i] == true) {
-					System.out.print("1");
-				} else {
-					System.out.print("0");
-				}
-
-			}
-			System.out.println();
+			// System.out.println("\nbit interleaving");
+			// for (int i = D_out.length - 100; i < D_out.length; i++) {
+			// if (D_out[i] == true) {
+			// System.out.print("1");
+			// } else {
+			// System.out.print("0");
+			// }
+			//
+			// }
+			// System.out.println();
 
 			FEC_Frame frame2 = new FEC_Frame(D_out);
 			///////////////////////////////////////

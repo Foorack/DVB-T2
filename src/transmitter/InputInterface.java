@@ -43,7 +43,7 @@ public class InputInterface extends Pipeline<Byte, FEC_Frame> {
 
 		@Override
 		public void work() {
-			System.out.println("\n\n============ Input Inteface ================");
+			// System.out.println("\n\n============ Input Inteface ================");
 			boolean[] data = new boolean[64800]; // 32208
 			byte temp;
 			for (int i = 80; i < data.length; i++) {
