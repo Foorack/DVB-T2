@@ -8,6 +8,7 @@ import org.jscience.mathematics.number.Complex;
 
 import com.jeffreybosboom.serviceproviderprocessor.ServiceProvider;
 
+import channel.Channel;
 import edu.mit.streamjit.api.Filter;
 import edu.mit.streamjit.api.Input;
 import edu.mit.streamjit.api.Pipeline;

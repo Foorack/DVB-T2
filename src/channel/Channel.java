@@ -1,4 +1,4 @@
-package transmitter.streamjit;
+package channel;
 
 import java.util.Random;
 
