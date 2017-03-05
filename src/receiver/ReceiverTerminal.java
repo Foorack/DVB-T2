@@ -1,5 +1,7 @@
 package receiver;
 
+import org.jscience.mathematics.number.Complex;
+
 import edu.mit.streamjit.api.Pipeline;
 import transmitter.streamjit.T2_Frame;
 
@@ -9,7 +11,7 @@ public class ReceiverTerminal extends Pipeline<T2_Frame, Byte>{
 		this.add(new ReceiverKernel());
 	}
 	
-	public static final class ReceiverKernel extends Pipeline<Byte, Byte> {
+	public static final class ReceiverKernel extends Pipeline<Complex, Byte> {
 		
 		public ReceiverKernel() {
 			this.add(
