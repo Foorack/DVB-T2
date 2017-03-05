@@ -13,6 +13,7 @@ import edu.mit.streamjit.api.Output;
 import edu.mit.streamjit.api.Pipeline;
 import edu.mit.streamjit.api.StreamCompiler;
 import edu.mit.streamjit.impl.compiler2.Compiler2StreamCompiler;
+import edu.mit.streamjit.test.Benchmarker;
 import edu.mit.streamjit.test.SuppliedBenchmark;
 
 public class ReceiverTerminal {
@@ -20,17 +21,19 @@ public class ReceiverTerminal {
 	public static void main(String[] args) throws InterruptedException {
 		StreamCompiler sc = new Compiler2StreamCompiler();
 		OneToOneElement<Complex, Byte> streamGraph = new ReceiverKernel();
-		Path path = Paths.get("data/channel.out");
+		Path path = Paths.get("data/dvbtransmitter.out");
 		Input<Complex> input = Input.fromBinaryFile(path, Complex.class, ByteOrder.LITTLE_ENDIAN);
 		CompiledStream cs = sc.compile(streamGraph, input, Output.blackHole());
 		cs.awaitDrained();
+
+		// Benchmarker.runBenchmark(new ReceiverBenchmark(), sc).get(0).print(System.out);
 	}
 
 	public static final class ReceiverBenchmark extends SuppliedBenchmark {
 
-		public ReceiverBenchmark(Dataset firstInput, Dataset[] moreInputs) {
-			super("Receiver", ReceiverKernel.class, new Dataset("data/channel.out",
-					Input.fromBinaryFile(Paths.get("data/channel.out"), Byte.class, ByteOrder.LITTLE_ENDIAN)));
+		public ReceiverBenchmark() {
+			super("Receiver", ReceiverKernel.class, new Dataset("data/dvbtransmitter.out", Input
+					.fromBinaryFile(Paths.get("data/dvbtransmitter.out"), Complex.class, ByteOrder.LITTLE_ENDIAN)));
 		}
 	}
 
