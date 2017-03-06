@@ -7,9 +7,9 @@ import org.jscience.mathematics.number.Complex;
 import edu.mit.streamjit.api.Filter;
 import edu.mit.streamjit.api.Pipeline;
 
-public class Channel extends Pipeline<Complex, Complex> {
+public class DVBChannel extends Pipeline<Complex, Complex> {
 
-	public Channel() {
+	public DVBChannel() {
 		this.add(new AWGN());
 	}
 

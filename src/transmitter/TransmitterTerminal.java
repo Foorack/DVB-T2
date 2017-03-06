@@ -30,7 +30,7 @@ public class TransmitterTerminal {
 		// Benchmarker.runBenchmark(new TransmitterBenchmark(),
 		// sc).get(0).print(System.out);
 
-		OneToOneElement<Byte, Complex> streamGraph = new TransmitterKernel();
+		OneToOneElement<Byte, Complex> streamGraph = new DVBTransmitterKernel();
 		Path path = Paths.get("data/bus_cif.yuv");
 		Input<Byte> input = Input.fromBinaryFile(path, Byte.class, ByteOrder.LITTLE_ENDIAN);
 		BinaryFileOutput<Complex> fileOutput = Output.toBinaryFile("dvbtransmitter.out", Complex.class);
@@ -40,18 +40,18 @@ public class TransmitterTerminal {
 	}
 
 	@ServiceProvider(Benchmark.class)
-	public static final class TransmitterBenchmark extends SuppliedBenchmark {
+	public static final class DVBTransmitterBenchmark extends SuppliedBenchmark {
 		//// E:\\videocoding\\yuv\\randomsource.yuv
 		// E:\\Project\\inputdata\\data.in
-		public TransmitterBenchmark() {
-			super("Transmitter", TransmitterKernel.class, new Dataset("data/bus_cif.yuv",
+		public DVBTransmitterBenchmark() {
+			super("DVBTransmitter", DVBTransmitterKernel.class, new Dataset("data/bus_cif.yuv",
 					(Input) Input.fromBinaryFile(Paths.get("data/bus_cif.yuv"), Byte.class, ByteOrder.LITTLE_ENDIAN)));
 		}
 	}
 
-	public static final class TransmitterKernel extends Pipeline<Byte, Complex> {
+	public static final class DVBTransmitterKernel extends Pipeline<Byte, Complex> {
 
-		public TransmitterKernel() {
+		public DVBTransmitterKernel() {
 			this.add(new ByteToBits()
 					, new InputInterface()
 					, new BB_Header_Insertion()

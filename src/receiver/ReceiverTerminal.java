@@ -20,7 +20,7 @@ public class ReceiverTerminal {
 
 	public static void main(String[] args) throws InterruptedException {
 		StreamCompiler sc = new Compiler2StreamCompiler();
-		OneToOneElement<Complex, Byte> streamGraph = new ReceiverKernel();
+		OneToOneElement<Complex, Byte> streamGraph = new DVBReceiverKernel();
 		Path path = Paths.get("data/dvbtransmitter.out");
 		Input<Complex> input = Input.fromBinaryFile(path, Complex.class, ByteOrder.LITTLE_ENDIAN);
 		CompiledStream cs = sc.compile(streamGraph, input, Output.blackHole());
@@ -29,17 +29,17 @@ public class ReceiverTerminal {
 		// Benchmarker.runBenchmark(new ReceiverBenchmark(), sc).get(0).print(System.out);
 	}
 
-	public static final class ReceiverBenchmark extends SuppliedBenchmark {
+	public static final class DVBReceiverBenchmark extends SuppliedBenchmark {
 
-		public ReceiverBenchmark() {
-			super("Receiver", ReceiverKernel.class, new Dataset("data/dvbtransmitter.out", Input
+		public DVBReceiverBenchmark() {
+			super("DVBReceiver", DVBReceiverKernel.class, new Dataset("data/dvbtransmitter.out", Input
 					.fromBinaryFile(Paths.get("data/dvbtransmitter.out"), Complex.class, ByteOrder.LITTLE_ENDIAN)));
 		}
 	}
 
-	public static final class ReceiverKernel extends Pipeline<Complex, Byte> {
+	public static final class DVBReceiverKernel extends Pipeline<Complex, Byte> {
 
-		public ReceiverKernel() {
+		public DVBReceiverKernel() {
 			this.add(new FFT(), new CellDeinterleaver(), new Constellation_Derotation(), new De_Normalizer(),
 					new Maximum_Likelyhood_Mapper(), new Constellation_De_mapper(), new Multiplexer(),
 					new Column_De_Twister(), new Bit_DeInterleaver(), new DeScrambbler(), new BBHeaderRemovel(),

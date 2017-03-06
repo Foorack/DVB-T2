@@ -7,15 +7,15 @@ import org.jscience.mathematics.number.Complex;
 
 import com.jeffreybosboom.serviceproviderprocessor.ServiceProvider;
 
-import channel.Channel;
+import channel.DVBChannel;
 import edu.mit.streamjit.api.Input;
 import edu.mit.streamjit.api.Pipeline;
 import edu.mit.streamjit.impl.compiler2.Compiler2StreamCompiler;
 import edu.mit.streamjit.test.Benchmark;
 import edu.mit.streamjit.test.Benchmarker;
 import edu.mit.streamjit.test.SuppliedBenchmark;
-import receiver.ReceiverTerminal.ReceiverKernel;
-import transmitter.TransmitterTerminal.TransmitterKernel;
+import receiver.ReceiverTerminal.DVBReceiverKernel;
+import transmitter.TransmitterTerminal.DVBTransmitterKernel;
 
 /**
  * @author Sumanaruban Rajadurai (Suman)
@@ -42,7 +42,7 @@ public class DVBT2 {
 
 	public static final class DVBT2Kernel extends Pipeline<Byte, Complex> {
 		public DVBT2Kernel() {
-			this.add(new TransmitterKernel(), new Channel(), new ReceiverKernel());
+			this.add(new DVBTransmitterKernel(), new DVBChannel(), new DVBReceiverKernel());
 		}
 	}
 }
