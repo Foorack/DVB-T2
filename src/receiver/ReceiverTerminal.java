@@ -43,7 +43,7 @@ public class ReceiverTerminal {
 			this.add(new FFT(), new CellDeinterleaver(), new Constellation_Derotation(), new De_Normalizer(),
 					new Maximum_Likelyhood_Mapper(), new Constellation_De_mapper(), new Multiplexer(),
 					new Column_De_Twister(), new Bit_DeInterleaver(), new DeScrambbler(), new BBHeaderRemovel(),
-					new PushDataBits(), new BitsToBytes(), new ByteToSource());
+					new PushDataBits()/*, new BitsToBytes(), new ByteToSource()*/);
 		}
 	}
 }
